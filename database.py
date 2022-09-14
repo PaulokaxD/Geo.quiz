@@ -25,7 +25,11 @@ class DataBase:
       """)
    
    def add_user(self, user: User) -> None:
-      # Evitar sql injection
+      '''
+      Add a user to the database with the structure:
+      User(username:str, psw_hash:str, rank.str)
+      '''
+      # TODO:Evitar sql injection
       self.cursor.execute(f"INSERT INTO Users(username, psw_hash ,rank)\
          VALUES ('{user.username}', '{user.psw_hash}', '{user.rank}');")
       self.connection.commit()
