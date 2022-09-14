@@ -1,0 +1,70 @@
+body{
+    height:100vh;
+    background-color:rgb(232, 213, 188);
+}
+
+.center-box{
+    max-width: 500px;
+    background-color: burlywood;
+    align-items: center;
+    padding: 5%;
+    margin: auto;
+    border-radius: 5%;
+    gap: 20px;
+    position: relative;
+    top: 25%;
+}
+
+form{
+    background-color: burlywood;
+    align-items: center;
+    width: 300px;
+    gap: 10px;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction: column;
+}
+
+input,button[type="submit"]{
+    width: 75%;
+}
+
+h1{
+    color: rgb(121, 71, 56);
+}
+
+a {
+    color: rgb(121, 71, 56);
+}
+
+a:hover {
+    color: rgb(188, 111, 88);
+
+}
+
+.showy{
+    border-radius: 5px;
+    background-color: rgb(121, 71, 56);
+    color: rgb(236, 214, 207);
+    padding: 5px;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.showy:hover{
+    color: rgb(236, 214, 207);
+    background-color: rgb(83, 49, 38);
+}
+
+.light{
+    color:rgb(236, 214, 207);
+    background-color: rgb(192, 135, 118);
+}
+
+.light:hover{
+    color:rgb(236, 214, 207);
+    background-color: rgb(188, 111, 88);
+}

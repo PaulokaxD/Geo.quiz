@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign.css') }}?version={{ num }}">
+</head>
+<body>
+    <div class="flex-column center-box">
+        <h1>Welcome to Geo.quiz!</h1>
+        <a class="showy" href="{{ url_for('signin') }}">Sign in!</a>
+        <a class="showy light" href="{{ url_for('login') }}">Log in!</a>
+    </div>
+</body>
+</html>

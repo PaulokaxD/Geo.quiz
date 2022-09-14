@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign.css') }}?version={{ num }}">
+</head>
+<body>
+    <div class="flex-column center-box">
+        <h1>{{ page }}</h1>
+        <form method="post" class="flex-column">
+            <input type="text" autocomplete="off" placeholder="User name" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            {% if page == "Sign in" %}
+            <input type="password" placeholder="Repeat the password" name="r-password" required>
+            {% endif %}
+            <button type="submit">{{ page }}</button>  
+        </form>
+        {% if page == "Sign in" %}
+        <p>Do you already have an account? Log in <a href="{{ url_for('login') }}">here</a></p>
+        {% else %}
+        <p>Don't you  have an account? Sign in <a href="{{ url_for('signin') }}">here</a></p>
+        {% endif %}
+    </div>
+ 
+</body>
+</html>
