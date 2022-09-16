@@ -13,6 +13,7 @@ body{
     gap: 20px;
     position: relative;
     top: 25%;
+    min-width: 300px;
 }
 
 form{
@@ -67,4 +68,21 @@ a:hover {
 .light:hover{
     color:rgb(236, 214, 207);
     background-color: rgb(188, 111, 88);
+}
+
+ul{
+    color: rgb(195, 43, 1);
+    list-style-type: none; 
+    width: 300px;
+    padding: 0%;
+    margin: 0%;
+}
+
+.issue-item{
+    background-color: rgba(195, 43, 1, 0.269);
+    width: auto;
+    margin: 2px;
+    text-align: center;
+    border-radius: 5px !important;
+    /* padding: 0px !important; */
 }

@@ -10,6 +10,15 @@
 <body>
     <div class="flex-column center-box">
         <h1>{{ page }}</h1>
+        {% if issues|length  > 0 %}
+        <ul class="flex-column">
+            {% for item in issues %}
+                <li class="issue-item">{{item}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+
         <form method="post" class="flex-column">
             <input type="text" autocomplete="off" placeholder="User name" name="username" required>
             <input type="password" placeholder="Password" name="password" required>
