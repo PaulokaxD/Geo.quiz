@@ -30,13 +30,13 @@ def signin():
         user = db.get_user(username)
         
         if len(username) < 3:
-            notifications.append("user_short")
+            notifications.append("The username is too short")
         if user.username != '':
-            notifications.append("user_exist")
+            notifications.append("The username already exist")
         if password != password2:
-            notifications.append("pssw_not_matching")
+            notifications.append("The passwords do not match")
         if len(password) < 5:
-            notifications.append("short_pssw")
+            notifications.append("The password need more than 5 letters")
         if len(notifications) == 0:
             user = User(username,generate_password_hash(password),'beginner')
             print(user)
@@ -48,8 +48,8 @@ def signin():
             return redirect(url_for('play'))
         else:
             #Pasar la lista de notifications y printearlas todas
-            return render_template('signin.html', num=num, page="Sign in")
-    return render_template('signin.html', num=num, page="Sign in")
+            return render_template('signin.html', num=num, page="Sign in",issues=notifications)
+    return render_template('signin.html', num=num, page="Sign in",issues=[])
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
@@ -64,18 +64,18 @@ def login():
         user = db.get_user(username)
         db.connection.close()
         if user.username == '':
-            # render_template('signin.html', num=num, page="Log in", ['user_not_exist'])
-            return render_template('signin.html', num=num, page="Log in")
+            return render_template('signin.html', num=num, page="Log in",
+                issues=['This user does not exist'])
         if check_password_hash(user.psw_hash,password):
             print('OLEE')
             # iniciar sesion (token)
             #ocultar datos de la url
             return redirect(url_for('play'))
         else:
-            # render_template('signin.html', num=num, page="Log in", ['bad_pssw'])
-            return render_template('signin.html', num=num, page="Log in")
+            return render_template('signin.html', num=num, page="Log in",
+                issues=['The password is incorrect'])
 
-    return render_template('signin.html', num=num, page="Log in")
+    return render_template('signin.html', num=num, page="Log in",issues=[])
 
 @app.route("/play")
 def play():
